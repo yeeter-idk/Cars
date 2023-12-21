@@ -1,0 +1,80 @@
+body {
+  //background-color: sk;
+  background-color: black;
+  //background-color: #333;
+  margin: 10px;
+  
+}
+
+*{
+  font-family: monospace;
+  font-size: 16px;
+  color:lime;
+  margin:0px;
+  //outline: 1px solid red;
+}
+
+#canvas{
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+#background{
+  width: 100%;
+  position: relative;
+  background-color: black;
+}
+
+#canvas, #background{
+  border-radius: 10px;
+  image-rendering: pixelated;
+}
+
+.container {
+  width: 100%;
+  position: relative;
+  outline: 10px solid #111;
+  background-color: #111;
+  border-radius: 10px;
+}
+
+.ui{
+  display: flex;
+  justify-content: space-between;
+}
+
+.code{
+  color: lime;
+  background-color: black;
+  //background-color: #222;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-top: 7px;
+  //outline: 2px solid lime;
+}
+.data{
+  position: relative;
+  left:32px;
+  width: auto;  
+}
+#title{
+  //display: flex;
+  //justify-content: center;
+}
+
+input{
+  width:30px;
+  //width: length;
+  //margin: 10px;
+  //display: flex;
+}
+
+button, input{
+  background-color: black;
+  color: lime;
+  border: none;
+  outline: none;
+  padding: 0px;
+  //font-size: 16px;
+} 

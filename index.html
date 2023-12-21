@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Self Driving</title>
+  </head>
+  <body>
+    <div class="container" id="container">   
+      <canvas id="background" ></canvas> 
+      <canvas id="canvas" ></canvas> 
+     
+      <div class="code">
+      <p id="title">let pleaseWait = [</p>   
+      &nbsp {<br>
+      &nbsp &nbsp "driveType": <button onclick="changeRaceType()" id="type">"drift"</button>,<br>
+      &nbsp &nbsp "roadType": <button onclick="changeOneWay()" id="oneWay">"oneWay"</button>,<br>      
+      &nbsp &nbsp "carAmount": <input type="number" value="12" id="carAmount">,<br>      
+      &nbsp &nbsp "roadSideBias": <input type="number" value="0" id="turnBias">,<br>      
+      &nbsp &nbsp "cammeraFocus": <button onclick="spectateFastestCar()">spectateFastestCar()</button>,<br>
+      &nbsp &nbsp "currentMap": <button onclick="changeMap()" id="mapSelector">0</button>,<p id="mapData" class="data"></p>
+      &nbsp &nbsp "randomSeed": <input type="number" value="0" id="seed"> || <button onclick="newSeed()">newSeed()</button>,<br>      
+      &nbsp &nbsp "simulation": <button onclick="startSim(maps[currentMap])">restart()</button>,<br>
+      &nbsp &nbsp "debugging": <button onclick="changeGlobalC()">"globalScreenClearing"</button><br>
+      &nbsp } <br>      
+      ]</div>
+    </div>
+    <script async src="main.js"></script>
+    <script src="qualityOfLife.js"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

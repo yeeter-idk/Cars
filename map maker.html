@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Convert PNG to 1D Array</title>
+</head>
+<body>
+    <input type="file" id="fileInput" accept=".png" onchange="processImage()">
+    <canvas id="canvas" style="display: none;"></canvas>
+
+    <script>
+        function processImage() {
+            const fileInput = document.getElementById('fileInput');
+            const canvas = document.getElementById('canvas');
+            const context = canvas.getContext('2d');
+            
+            const image = new Image();
+            image.src = URL.createObjectURL(fileInput.files[0]);
+
+            image.onload = function() {
+                canvas.width = image.width;
+                canvas.height = image.height;
+                context.drawImage(image, 0, 0);
+
+                const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+                const pixelData = imageData.data;
+                const colors1D = [];
+
+                for (let i = 0; i < pixelData.length; i += 4) {
+                    const r = pixelData[i];
+                    const g = pixelData[i + 1];
+                    const b = pixelData[i + 2];
+                    
+                    if(g == 169){
+                      colors1D.push(Math.floor(r/10))
+                      continue 
+                    }
+                    
+                    // Determine the color based on RGB values
+                    let color = 0; // Default to white (0)
+                    if (r === 0 && g === 0 && b === 0) {
+                        color = 1; // Black is 1
+                    } else if (r === 255 && g === 0 && b === 0) {
+                        color = 2; // Red is 2
+                    } else if (r === 0 && g === 255 && b === 0) {
+                        color = 3; // Red is 2
+                    } else if (r === 0 && g === 0 && b === 255) {
+                        color = 4; // Red is 2
+                    } else if (r === 255 && g === 0 && b === 255) {
+                        color = 5; // Red is 2
+                    } else if (r === 255 && g === 255 && b === 0) {
+                        color = 6; // Red is 2
+                    } else if (r === 0 && g === 255 && b === 255) {
+                        color = 7; // Red is 2
+                    } else if (r === 255 && g === 125 && b === 0) {
+                        color = 8; // Red is 2
+                    } else if (r === 125 && g === 0 && b === 255) {
+                        color = 9; // violet
+                    } else if (r === 0 && g === 255 && b === 125) {
+                        color = 10; // violet
+                    } else if (r === 255 && g === 0 && b === 125) {
+                        color = 11; // pink
+                    } else if (r === 125 && g === 0 && b === 0) {
+                        color = 12; // maroon
+                    } else if (r === 0 && g === 125 && b === 0) {
+                        color = 13; // drk gree
+                    }
+
+                    colors1D.push(color);
+                }
+
+                console.log(colors1D); // This is your 1D array of colors (0, 1, and 2)
+            };
+        }
+    </script>
+</body>
+</html>
